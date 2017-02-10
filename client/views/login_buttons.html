@@ -1,14 +1,14 @@
 <template name="loginButtons">
   <ul class="nav pull-right">
     {{#if currentUser}}
-      {{> login}}
+      {{> loggedin}}
     {{else}}
-      {{> logout}}
+      {{> loggedout}}
     {{/if}}
   </ul>
 </template>
 
-<!-- <template name="loggedin">
+<template name="loggedin">
   {{#if loggingIn}}
     <li><a>Logging in...</a></li>
   {{else}}
@@ -21,8 +21,8 @@
         <b class="caret"></b>
       </a>
       <ul class="dropdown-menu">
-        <li><a>Account Settings</a></li>
-        <li class="divider"></li>
+        <!-- <li><a>Account Settings</a></li> -->
+        <!-- <li class="divider"></li> -->
         <li><a id="logout">Logout</a></li>
       </ul>
     </li>
@@ -30,14 +30,5 @@
 </template>
 
 <template name="loggedout">
-  <li><a id="login">Log in with Facebook</a></li>
-</template> -->
-<template name="login">
-    {{#if currentUser}}
-        {{currentUser.services.facebook.name}} -
-        {{currentUser.services.facebook.gender}}
-        <button id="logout">Logout</button>
-    {{else}}
-        <button id="facebook-login" class="btn btn-default"> Login with Facebook</button>
-    {{/if}}
+  <li><a id="login">Log in with Github</a></li>
 </template>

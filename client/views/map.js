@@ -1,6 +1,4 @@
-///////////////////////////////////////////////////////////////////////////////
 // Map display
-
 Template.map.created = function() {
   Parties.find({}).observe({
     added: function(party) {
@@ -9,7 +7,7 @@ Template.map.created = function() {
         icon: createIcon(party)
       }).on('click', function(e) {
         Session.set("selected", e.target.options._id);
-      });      
+      });
       addMarker(marker);
     },
     changed: function(party) {
@@ -23,7 +21,7 @@ Template.map.created = function() {
 }
 
 Template.map.rendered = function () { 
-  // basic housekeeping
+  // basic 
   $(window).resize(function () {
     var h = $(window).height(), offsetTop = 90; // Calculate the top offset
     $('#map_canvas').css('height', (h - offsetTop));
@@ -31,10 +29,11 @@ Template.map.rendered = function () {
 
   // initialize map events
   if (!map) {
-    initialize($("#map_canvas")[0], [ 41.8781136, -87.66677956445312 ], 13);
+    // lat lon is set to New jersey
+    initialize($("#map_canvas")[0], [ 39.833851, -74.871826 ], 13);
   
     map.on("dblclick", function(e) {
-      if (! Meteor.userId()) // must be logged in to create parties
+      if (! Meteor.userId()) // must be logged in to create Event
         return;
       
       openCreateDialog(e.latlng);
@@ -78,12 +77,12 @@ var initialize = function(element, centroid, zoom, features) {
     touchZoom: false
   }).setView(new L.LatLng(centroid[0], centroid[1]), zoom);
   
-  L.tileLayer('http://{s}.tile.stamen.com/toner-lite/{z}/{x}/{y}.png').addTo(map);
-
+  L.tileLayer('http://{s}.tile.stamen.com/toner-hybrid/{z}/{x}/{y}.png').addTo(map);
+  // L.tileLayer('http://maps.stamen.com/m2i/image/20170209/mapstack_iAjlYKDsgfk').addTo(map);
   map.attributionControl.setPrefix('');
   
 	var attribution = new L.Control.Attribution();
-  attribution.addAttribution("Geocoding data &copy; 2013 <a href='http://open.mapquestapi.com'>MapQuest, Inc.</a>");
+  attribution.addAttribution("Geocoding data &copy; 2017 <a href='http://open.mapquestapi.com'>MapQuest, Inc.</a>");
   attribution.addAttribution("Map tiles by <a href='http://stamen.com'>Stamen Design</a> under <a href='http://creativecommons.org/licenses/by/3.0'>CC BY 3.0</a>.");
   attribution.addAttribution("Data by <a href='http://openstreetmap.org'>OpenStreetMap</a> under <a href='http://creativecommons.org/licenses/by-sa/3.0'>CC BY SA</a>.");
   
