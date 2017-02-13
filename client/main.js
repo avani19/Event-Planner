@@ -1,5 +1,4 @@
 // events -- client
-
 Meteor.subscribe("directory");
 Meteor.subscribe("parties");
 
