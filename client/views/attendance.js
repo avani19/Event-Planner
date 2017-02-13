@@ -1,5 +1,4 @@
-///////////////////////////////////////////////////////////////////////////////
-// Party attendance widget
+// event attendance widget
 
 Template.attendance.helpers({
   rsvpName: function () {

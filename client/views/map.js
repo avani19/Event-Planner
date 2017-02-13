@@ -37,6 +37,7 @@ Template.map.rendered = function () {
         return;
       
       openCreateDialog(e.latlng);
+      // console.log(e.latlng);
     });
   
     var self = this;
@@ -61,6 +62,7 @@ Template.map.rendered = function () {
             [selectedParty.latlng.lat, selectedParty.latlng.lng]]);
           self.animatedMarker.setLine(line.getLatLngs());
           self.animatedMarker.start();
+          console.log(line);
         } 
       }
     })
@@ -105,7 +107,7 @@ var createIcon = function(party) {
   return L.divIcon({
     iconSize: [30, 30],
     html: '<b>' + attending(party) + '</b>',
-    className: className  
+    className: className
   });
 }
 

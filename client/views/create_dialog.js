@@ -1,12 +1,13 @@
-///////////////////////////////////////////////////////////////////////////////
 // Create Party dialog
-
+// on click event
 Template.createDialog.events({
   'click .save': function (event, template) {
     var title = template.find(".title").value;
     var description = template.find(".description").value;
+    // var var dateTime = template.find(".datetimepicker").date;
     var public = ! template.find(".private").checked;
     var latlng = Session.get("createCoords");
+
 
     if (title.length && description.length) {
       Meteor.call('createParty', {

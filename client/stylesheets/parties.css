@@ -83,3 +83,14 @@ input.chosen {
     padding: 3px;
     padding-bottom: 0;
 }
+.bootstrap-datetimepicker-widgetdropdown-menu.top:before {
+        content: '';
+        display: inline-block;
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+        border-bottom: 7px solid #ccc;
+        border-bottom-color: rgba(0, 0, 0, 0.2);
+        position: absolute;
+        /*top: px;*/
+        left: 7px;
+    }

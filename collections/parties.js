@@ -1,4 +1,3 @@
-///////////////////////////////////////////////////////////////////////////////
 // Parties
 
 /*
@@ -6,7 +5,7 @@
     owner: user id
     x, y: Number (screen coordinates in the interval [0, 1])
     title, description: String
-    public: Boolean
+    public: Boolean(true/false)
     invited: Array of user id's that are invited (only if !public)
     rsvps: Array of objects like {user: userId, rsvp: "yes"} (or "no"/"maybe")
 */
@@ -71,22 +70,21 @@ Meteor.methods({
       throw new Meteor.Error(404, "No such party");
     if (party.public)
       throw new Meteor.Error(400,
-                             "That party is public. No need to invite people.");
+                             "That event is public. No need to invite people.");
     if (userId !== party.owner && ! _.contains(party.invited, userId)) {
       Parties.update(partyId, { $addToSet: { invited: userId } });
 
       var from = contactEmail(Meteor.users.findOne(this.userId));
       var to = contactEmail(Meteor.users.findOne(userId));
       if (Meteor.isServer && to) {
-        // This code only runs on the server. If you didn't want clients
-        // to be able to see it, you could move it to a separate file.
+        // This code only runs on the server.
         Email.send({
           from: "noreply@example.com",
           to: to,
           replyTo: from || undefined,
           subject: "PARTY: " + party.title,
           text:
-"Hey, I just invited you to '" + party.title + "' on All Tomorrow's Parties." +
+"Hey, I just invited you to '" + party.title + "' on Event." +
 "\n\nCome check it out: " + Meteor.absoluteUrl() + "\n"
         });
       }

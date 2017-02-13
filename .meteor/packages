@@ -26,3 +26,5 @@ accounts-github
 service-configuration
 standard-app-packages
 bevanhunt:leaflet
+tsega:bootstrap3-datetimepicker
+bootstrap3:glyphicons

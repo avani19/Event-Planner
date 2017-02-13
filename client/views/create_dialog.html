@@ -18,7 +18,19 @@
       <textarea class="description span5"></textarea>
       
       <label>Date and Time</label>
-      <textarea></textarea>
+      <div>
+      <div class='input-group date' id='datetimepicker1'>
+          <input type='text' class="form-control" />
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+      </div>
+       <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datetimepicker();
+            });
+        </script>
+        </div>
       <label class="checkbox">
         <input type="checkbox" class="private">
         Private party &mdash; invitees only
@@ -27,7 +39,7 @@
 
     <div class="modal-footer">
       <a href="#" class="btn cancel">Cancel</a>
-      <a href="#" class="btn btn-primary save">Add party</a>
+      <a href="#" class="btn btn-primary save">Add event</a>
     </div>
   </div>
 </template>

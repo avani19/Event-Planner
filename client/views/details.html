@@ -17,14 +17,15 @@
             <input type="button" value="No"
                    class="btn btn-small rsvp_no {{maybeChosen "no"}}">
           {{else}}
-            <i>Sign in to RSVP for this party.</i>
+            <i>Sign in to RSVP for this event.</i>
           {{/if}}
           <p><small>Posted by {{creatorName}}</small></p>
         </div>
-
+  
         {{#if canRemove}}
+        <!-- if nobody send RSVP then display dilouge box to delete the event  -->
           <div class="alert alert-info"><small>
-              You posted this party and nobody is signed up to go, so if
+              You posted this event and nobody is signed up to go, so if
               you like, you could
               <b><a href="#" class="remove">delete this listing</a></b>.
           </small></div>
@@ -33,9 +34,9 @@
     {{else}}
       <h1 class="muted pagination-centered">
         {{#if anyParties}}
-          Click a party to select it
+          Click an event to select it
         {{else}}
-          Sign in and double click the map to post a party
+          Sign in and double click the map to post an event
         {{/if}}
       </h1>
     {{/if}}
