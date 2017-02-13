@@ -1,4 +1,3 @@
-///////////////////////////////////////////////////////////////////////////////
 // Party details sidebar
 
 Template.details.helpers({
@@ -25,7 +24,7 @@ Template.details.helpers({
     return what == myRsvp.rsvp ? "chosen btn-inverse" : "";
   }
 });
-
+// click events for RSVP, Maybe, invite etc..
 Template.details.events({
   'click .rsvp_yes': function () {
     Meteor.call("rsvp", Session.get("selected"), "yes");

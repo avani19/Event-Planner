@@ -1,4 +1,4 @@
-// Create Party dialog
+// Create event dialog
 // on click event
 Template.createDialog.events({
   'click .save': function (event, template) {
@@ -28,7 +28,7 @@ Template.createDialog.events({
                   "It needs a title and a description, or why bother?");
     }
   },
-
+// cancel button close the tab
   'click .cancel': function () {
     Session.set("showCreateDialog", false);
   }

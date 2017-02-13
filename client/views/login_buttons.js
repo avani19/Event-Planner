@@ -1,3 +1,4 @@
+// login
 Template.loggedin.events({
   'click #logout': function(e, tmpl) {
     Meteor.logout(function(err){
@@ -9,7 +10,7 @@ Template.loggedin.events({
     });
   }
 }); 
-
+// logout 
 Template.loggedout.events({
   'click #login': function(e, tmpl) {
     Meteor.loginWithGithub({
