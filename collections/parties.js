@@ -44,12 +44,14 @@ Meteor.methods({
     options = options || {};
     if (! (typeof options.title === "string" && options.title.length &&
            typeof options.description === "string" &&
-           options.description.length))
+           options.description.length && typeof options.address === "string" && options.address.length && typeof options.dateTime === "string" && options.dateTime.length ))
       throw new Meteor.Error(400, "Required parameter missing");
     if (options.title.length > 100)
       throw new Meteor.Error(413, "Title too long");
     if (options.description.length > 1000)
       throw new Meteor.Error(413, "Description too long");
+    if (options.address.length > 300)
+      throw new Meteor.Error(413, "Address too long");
     if (! this.userId)
       throw new Meteor.Error(403, "You must be logged in");
 
@@ -58,6 +60,8 @@ Meteor.methods({
       latlng: options.latlng,
       title: options.title,
       description: options.description,
+      address: options.address,
+      dateTime: options.dateTime,
       public: !! options.public,
       invited: [],
       rsvps: []

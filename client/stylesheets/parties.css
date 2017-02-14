@@ -83,7 +83,7 @@ input.chosen {
     padding: 3px;
     padding-bottom: 0;
 }
-.bootstrap-datetimepicker-widgetdropdown-menu.top:before {
+/*.bootstrap-datetimepicker-widgetdropdown-menu{
         content: '';
         display: inline-block;
         border-left: 7px solid transparent;
@@ -91,6 +91,24 @@ input.chosen {
         border-bottom: 7px solid #ccc;
         border-bottom-color: rgba(0, 0, 0, 0.2);
         position: absolute;
-        /*top: px;*/
+        top: -7px;
         left: 7px;
-    }
+    }*/
+
+/*.bootstrap-datetimepicker-widget.timepicker-picker table td,
+.bootstrap-datetimepicker-widget.timepicker-picker table td span,
+.bootstrap-datetimepicker-widget.timepicker-picker table td a span
+{height: 30px; line-height: 30px; width: 30px; padding:0px;}*/
+
+.bootstrap-datetimepicker-widget td.day {
+    /*height: 20px;*/
+    padding: 0px;
+    /*width: -20px;*/
+    line-height: 10px;
+    /*line-width: 10px;/*/
+    /*font-size: 10px;*/
+}
+
+th.dow {
+    /*font-size: 12px;*/
+}

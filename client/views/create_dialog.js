@@ -4,7 +4,8 @@ Template.createDialog.events({
   'click .save': function (event, template) {
     var title = template.find(".title").value;
     var description = template.find(".description").value;
-    // var var dateTime = template.find(".datetimepicker").date;
+    var address = template.find(".address").value;
+    var dateTime = template.find(".form-control").value;
     var public = ! template.find(".private").checked;
     var latlng = Session.get("createCoords");
 
@@ -13,6 +14,8 @@ Template.createDialog.events({
       Meteor.call('createParty', {
         title: title,
         description: description,
+        address: address,
+        dateTime: dateTime,
         latlng: latlng,
         public: public
       }, function (error, party) {

@@ -4,9 +4,14 @@
       {{#with party}}
         <h1>{{title}}</h1>
 
-        <div class="description">{{description}}</div>
+        <div class="description"><strong>Description: </strong><br>{{description}}</div>
+        <address>
+        <div class="address"><strong>Address:</strong><br>{{address}}</div>
+        </address>
+        <div class="dateTime"><strong>Date and Time: </strong><br>{{dateTime}}</div>
 
         {{> attendance}}
+
 
         <div class="rsvp-buttons">
           {{#if currentUser}}
@@ -33,13 +38,21 @@
       {{/with}}
     {{else}}
     <!-- display possible actions -->
+    {{#if currentUser}}
+     <h1 class="muted pagination-centered">
+      Double click the map to post an event
+      </h1>
+    {{else}}
       <h1 class="muted pagination-centered">
         {{#if anyParties}}
           Click an event to select it
         {{else}}
-          Sign in and double click the map to post an event
+        Sing in and double click the map to post an event 
         {{/if}}
       </h1>
+
+    {{/if}}
+
     {{/if}}
   </div>
 </template>
