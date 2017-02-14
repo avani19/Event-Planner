@@ -112,3 +112,12 @@ input.chosen {
 th.dow {
     /*font-size: 12px;*/
 }
+body{
+    background-image: url('../bg5.jpg');
+}
+/*.navbar {
+   background-color: transparent;
+   background: transparent;
+   border-color: transparent;
+}
+.navbar ul { color: #000 } */

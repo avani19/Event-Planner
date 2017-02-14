@@ -10,7 +10,7 @@ Template.loggedin.events({
     });
   }
 }); 
-// logout 
+// logout
 Template.loggedout.events({
   'click #login': function(e, tmpl) {
     Meteor.loginWithGithub({
